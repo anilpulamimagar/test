@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Handlerbars JS Tutorial</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- Tutorial https://www.youtube.com/watch?v=wSNa5b1mS5Y -->
+    <div class="page-wrap">
+        <h1>Handlerbars Tutorial</h1>
+
+        <div id="pets-container"></div>
+    </div>
+
+    <script id="petsTemplate" type="text/x-handlebar-template">
+        {{#each pets}}
+            <div class="pet">
+                <div class="photo-column">
+                    <img src="{{photo}}">
+                </div>
+                <div class="info-column">
+                    <h2>{{name}} <span class="species">{{species}}</span></h2>
+                    <p>Age: {{calculateAge birthYear}}</p>
+
+                    {{#if favFoods}}
+                        <h4 class="headline-bar">Favourite Foods</h4>
+                        <ul class="favorite-foods">
+                            {{#each favFoods}}
+                                <li>{{{this}}}</li>
+                            {{/each}}
+                        </ul>
+                    {{/if}}
+                </div>
+            </div>
+
+        {{/each}}
+    </script>
+
+<script src="js/handlebars-v4.7.6.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
